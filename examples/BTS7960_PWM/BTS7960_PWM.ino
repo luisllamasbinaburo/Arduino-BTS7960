@@ -11,7 +11,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 // L_PWM -> 9
 // R_PWM -> 10
  
-#include "BTS7960.h"
+#include "/home/aditya/VSProjects/Arduino-BTS7960/src/BTS7960.cpp"
 
 const uint8_t EN = 8;
 const uint8_t L_PWM = 9;

@@ -8,11 +8,14 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #ifndef BTS7960_h
 #define BTS7960_h
 
-#if defined(ARDUINO) && ARDUINO >= 100
-#include "Arduino.h"
+#if defined(arduino) && arduino >= 100
+#include "arduino.h"
+#elif defined(ARDUINO_ARCH_ESP322)
+#include <analogWrite.h>
 #else
-#include "WProgram.h"
+#include "wprogram.h"
 #endif
+
 
 class BTS7960
 {
