@@ -17,7 +17,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #elif ESP32
 #include <analogWrite.h>
 #else
-#include "wprogram.h"
+#include "WProgram.h"
 #endif
 
 
