@@ -8,9 +8,13 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #ifndef BTS7960_h
 #define BTS7960_h
 
+//#ifdef ESP32
+//#include <analogWrite.h>
+//#endif
+
 #if defined(arduino) && arduino >= 100
 #include "arduino.h"
-#elif defined(ARDUINO_ARCH_ESP322)
+#elif ESP32
 #include <analogWrite.h>
 #else
 #include "wprogram.h"

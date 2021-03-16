@@ -21,3 +21,6 @@ BTS7960 motor1(EN, L_PWM, R_PWM);
 |**Stop** |     none  | Full stop (brake)
 |**TurnLeft** | int8_t pwm  | Rotate forward at PWM speed
 |**TurnRight** | int8_t pwm  | Rotate backward at PWM speed
+
+## Dependenceis
+ - ESP32_AnalogWrite - https://github.com/ERROPiX/ESP32_AnalogWrite
