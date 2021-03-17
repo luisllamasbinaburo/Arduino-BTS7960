@@ -7,15 +7,21 @@ Unless required by applicable law or agreed to in writing, software distributed 
  
 #include "BTS7960.h"
 
-BTS7960::BTS7960(uint8_t L_EN, uint8_t R_EN, uint8_t L_PWM, uint8_t R_PWM){
+BTS7960::BTS7960(uint8_t L_EN, uint8_t R_EN, uint8_t L_PWM, uint8_t R_PWM, uint8_t L_IS, uint8_t R_IS, uint8_t L_IS_RES, uint8_t R_IS_RES){
 	_R_PWM = R_PWM;
 	_L_PWM = L_PWM;
 	_L_EN = L_EN;
 	_R_EN = R_EN;
+	_L_IS = L_IS;
+	_R_IS = R_IS;
+	_L_IS_RES = L_IS_RES;
+	_R_IS_RES = R_IS_RES;
 	pinMode(_R_PWM, OUTPUT);
 	pinMode(_L_PWM, OUTPUT);
 	pinMode(_L_EN, OUTPUT);
 	pinMode(_R_EN, OUTPUT);
+	pinMode(_L_IS, INPUT);
+	pinMode(_R_IS, INPUT);
 }
 
 void BTS7960::TurnRight(uint8_t pwm){
@@ -44,3 +50,12 @@ void BTS7960::Stop(){
   analogWrite(_L_PWM, LOW);
   analogWrite(_R_PWM, HIGH);
 }
+
+float BTS7960::CurrentSenseRight(){
+  return analogRead(_R_IS);
+}
+
+float BTS7960::CurrentSenseLeft(){
+  return analogRead(_L_IS);
+}
+

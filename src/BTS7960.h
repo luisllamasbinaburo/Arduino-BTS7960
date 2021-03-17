@@ -21,18 +21,31 @@ class BTS7960
 {
   public:
 	BTS7960(uint8_t EN, uint8_t L_PWM, uint8_t R_PWM) : BTS7960(EN, 0, L_PWM, R_PWM) {}
-    BTS7960(uint8_t L_EN, uint8_t R_EN, uint8_t L_PWM, uint8_t R_PWM);
-    void Enable();
-    void Disable();
+	BTS7960(uint8_t L_EN, uint8_t R_EN, uint8_t L_PWM, uint8_t R_PWM) : BTS7960(L_EN, R_EN, L_PWM, R_PWM, 0, 0, 10000, 10000) {}
+	BTS7960(uint8_t L_EN, uint8_t R_EN, uint8_t L_PWM, uint8_t R_PWM, uint8_t L_IS, uint8_t R_IS) : BTS7960(L_EN, R_EN, L_PWM, R_PWM, L_IS, R_IS, 10000, 10000) {}
+
+	BTS7960(uint8_t L_EN, uint8_t R_EN, uint8_t L_PWM, uint8_t R_PWM, uint8_t L_IS, uint8_t R_IS, uint8_t L_IS_RES, uint8_t R_IS_RES);
+	  
+	void Enable();
+	void Disable();
 
 	void TurnLeft(uint8_t pwm);
 	void TurnRight(uint8_t pwm);
 	void Stop();
+	
+	float CurrentSenseRight();
+	float CurrentSenseLeft();
 
   private:
     uint8_t _L_EN;
     uint8_t _R_EN;
     uint8_t _L_PWM;
     uint8_t _R_PWM;
+    
+    uint8_t _L_IS_RES = 10000;
+    uint8_t _R_IS_RES = 10000;
+    
+    uint8_t _L_IS;
+    uint8_t _R_IS;
 };
 #endif

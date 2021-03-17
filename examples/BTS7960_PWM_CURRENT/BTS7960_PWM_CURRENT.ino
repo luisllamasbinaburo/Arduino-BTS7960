@@ -6,21 +6,21 @@ Unless required by applicable law or agreed to in writing, software distributed 
  ****************************************************/
 
 // PINOUT
-// L_EN -> 8
-// R_EN -> 8
-// L_PWM -> 9
-// R_PWM -> 10
  
 #include "BTS7960.h"
 
-const uint8_t EN = 8;
-const uint8_t L_PWM = 9;
-const uint8_t R_PWM = 10;
+const uint8_t EN_L = 33;
+const uint8_t EN_R = 25;
+const uint8_t L_PWM = 26;
+const uint8_t R_PWM = 15;
+const uint8_t R_IS = 34;
+const uint8_t L_IS = 35;
 
-BTS7960 motorController(EN, L_PWM, R_PWM);
+BTS7960 motorController(EN_L, EN_R, L_PWM, R_PWM, L_IS, R_IS);
 
 void setup() 
 {
+  Serial.begin(115200);
 }
 
 void loop() 
@@ -29,20 +29,27 @@ void loop()
 
   for(int speed = 0 ; speed < 255; speed+=10)
   {
+    Serial.println(motorController.CurrentSenseLeft());
 	motorController.TurnLeft(speed);
+  Serial.println(motorController.CurrentSenseLeft());
 	delay(100);
+  
   }  
+
+  delay(1000);
 
   motorController.Stop();
   
   for(int speed = 255 ; speed > 0; speed-=10)
   {
+    Serial.println(motorController.CurrentSenseLeft());
 	motorController.TurnLeft(speed);
+  Serial.println(motorController.CurrentSenseLeft());
 	delay(100);
   }  
   motorController.Stop();
 
   motorController.Disable();
   
-  delay(5000);
-} 
+  delay(1000);
+}
