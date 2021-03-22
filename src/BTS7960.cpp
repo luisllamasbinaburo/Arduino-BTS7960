@@ -42,5 +42,5 @@ void BTS7960::Disable(){
 
 void BTS7960::Stop(){
   analogWrite(_L_PWM, LOW);
-  analogWrite(_R_PWM, HIGH);
+  analogWrite(_R_PWM, LOW);
 }
