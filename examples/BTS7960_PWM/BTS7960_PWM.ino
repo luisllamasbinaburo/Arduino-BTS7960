@@ -13,11 +13,12 @@ Unless required by applicable law or agreed to in writing, software distributed 
  
 #include "BTS7960.h"
 
-const uint8_t EN = 8;
-const uint8_t L_PWM = 9;
 const uint8_t R_PWM = 10;
+const uint8_t L_PWM = 11;
+const uint8_t R_EN = 12;
+const uint8_t L_EN = 13;
 
-BTS7960 motorController(EN, L_PWM, R_PWM);
+BTS7960 motorController(L_EN, R_EN, L_PWM, R_PWM);
 
 void setup() 
 {
@@ -29,7 +30,7 @@ void loop()
 
   for(int speed = 0 ; speed < 255; speed+=10)
   {
-	motorController.TurnLeft(speed);
+	motorController.TurnRight(speed);
 	delay(100);
   }  
 
