@@ -10,24 +10,24 @@
 void motor_cw(){
   digitalWrite (LPWM, LOW);
   digitalWrite (RPWM, HIGH);
-  digitalWrite (L_EN, 100); // THIS LOOKS SUSPECT
-  digitalWrite (R_EN, 100);
+  analogWrite (L_EN, 100); // THIS LOOKS SUSPECT
+  analogWrite (R_EN, 100);
   Serial.println ("MOTOR RUNS CW");
   }
 
 void motor_ccw(){
   digitalWrite (LPWM, HIGH);
   digitalWrite (RPWM, LOW);
-  digitalWrite (L_EN, 100); // THIS LOOKS SUSPECT
-  digitalWrite (R_EN, 100);
+  analogWrite (L_EN, 100); // THIS LOOKS SUSPECT
+  analogWrite (R_EN, 100);
   Serial.println ("MOTOR RUNS CCW");
   }
 
 void motor_stop(){
   digitalWrite (LPWM, LOW);
   digitalWrite (RPWM, LOW);
-  digitalWrite (L_EN, 100); // THIS LOOKS SUSPECT
-  digitalWrite (R_EN, 100);
+  analogWrite (L_EN, 0); // THIS LOOKS SUSPECT
+  analogWrite (R_EN, 0);
   Serial.println ("MOTOR STOPS");
   }
 
@@ -41,15 +41,15 @@ void setup() {
 }
 
 void loop() {
-  delay(1000)
+  delay(1000);
   motor_stop();
-  delay(1000)
+  delay(1000);
   motor_cw();
-  delay(1000)
-  delay(1000)
+  delay(1000);
+  delay(1000);
   motor_stop();
   motor_ccw();
-  delay(1000)
+  delay(1000);
   motor_stop();
 
 }
