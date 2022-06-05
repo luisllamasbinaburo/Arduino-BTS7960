@@ -2,6 +2,10 @@
 // Supposedly the labeling is "confusing" and do the opposite of what you think they should do
 // At this point, nothing else was working anyway. Might as well give it a shot
 
+// Update - this actually made them spin. Unfortunately, too fast and makes a 
+//    high pitched sound. Maybe a different motor or psu would be worth
+//    looking into
+
 #define RPWM 7
 #define LPWM 8
 #define R_EN 9 // pwm pin speed
@@ -10,7 +14,7 @@
 void motor_cw(){
   digitalWrite (LPWM, LOW);
   digitalWrite (RPWM, HIGH);
-  analogWrite (L_EN, 100); // THIS LOOKS SUSPECT
+  analogWrite (L_EN, 100);
   analogWrite (R_EN, 100);
   Serial.println ("MOTOR RUNS CW");
   }
@@ -18,7 +22,7 @@ void motor_cw(){
 void motor_ccw(){
   digitalWrite (LPWM, HIGH);
   digitalWrite (RPWM, LOW);
-  analogWrite (L_EN, 100); // THIS LOOKS SUSPECT
+  analogWrite (L_EN, 100);
   analogWrite (R_EN, 100);
   Serial.println ("MOTOR RUNS CCW");
   }
@@ -26,7 +30,7 @@ void motor_ccw(){
 void motor_stop(){
   digitalWrite (LPWM, LOW);
   digitalWrite (RPWM, LOW);
-  analogWrite (L_EN, 0); // THIS LOOKS SUSPECT
+  analogWrite (L_EN, 0); 
   analogWrite (R_EN, 0);
   Serial.println ("MOTOR STOPS");
   }
