@@ -41,15 +41,15 @@ void setup() {
 }
 
 void loop() {
-  delay(1000)
+  delay(1000);
   motor_stop();
-  delay(1000)
+  delay(1000);
   motor_cw();
-  delay(1000)
-  delay(1000)
+  delay(1000);
+  delay(1000);
   motor_stop();
   motor_ccw();
-  delay(1000)
+  delay(1000);
   motor_stop();
 
 }
