@@ -19,5 +19,5 @@ BTS7960 motor1(EN, L_PWM, R_PWM);
 |**Enable** |   none | Enable the motor driver
 |**Disable** |  none | Disable the motor driver (free rotation)
 |**Stop** |     none  | Full stop (brake)
-|**TurnLeft** | int8_t pwm  | Rotate forward at PWM speed
-|**TurnRight** | int8_t pwm  | Rotate backward at PWM speed
+|**TurnLeft** | uint8_t pwm  | Rotate forward at PWM speed
+|**TurnRight** | uint8_t pwm  | Rotate backward at PWM speed
